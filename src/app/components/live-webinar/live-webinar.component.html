@@ -1,0 +1,28 @@
+<div class="live-webinar-section">
+  <!-- Section Header -->
+  <div class="section-header">
+    <h2 class="section-title">Live Webinars</h2>
+    <button class="view-all-btn" (click)="onViewAll()">
+      <span class="view-all-text">View all</span>
+      <img src="/icons/arrow-right.svg" alt="Arrow" class="arrow-icon" />
+    </button>
+  </div>
+
+  <!-- Horizontal Scroll Container -->
+  <div class="webinar-scroll-container">
+    <div class="webinar-scroll-wrapper">
+      <app-webinar-card
+        *ngFor="let webinar of webinars; let i = index"
+        [webinarData]="webinar"
+        [showCardHeader]="false"
+        [showWebinarEngagement]="false"
+        [showCardActionsBottom]="false"
+        [showWatchNowButton]="true"
+        [showWebinarNotify]="false"
+        [showWebinarStatus]="true"
+        [showWebinarDuration]="true"
+        class="webinar-card-item">
+      </app-webinar-card>
+    </div>
+  </div>
+</div>

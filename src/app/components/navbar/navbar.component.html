@@ -1,0 +1,58 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Left Section: Logo and Search -->
+    <div class="navbar-left">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="/icons/docquity-logo.svg" alt="Docquity" class="logo-icon" />
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search in docquity"
+          class="search-input"
+          #searchInput
+          (keyup.enter)="onSearchSubmit(searchInput.value)"
+        />
+        <img src="/icons/search.svg" alt="Search" class="search-icon" />
+      </div>
+    </div>
+
+    <!-- Center Section: Navigation Items -->
+    <div class="navbar-center">
+      <div class="nav-items">
+        <div
+          *ngFor="let item of navItems"
+          class="nav-item"
+          [class.active]="item.active"
+          (click)="onNavItemClick(item.id)"
+        >
+          <img [src]="item.icon" [alt]="item.label" class="nav-icon" />
+          <span class="nav-label">{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section: Post Button and User Profile -->
+    <div class="navbar-right">
+      <!-- Post Button -->
+      <button class="post-btn" (click)="onPostClick()">
+        <span class="post-text">+ Post</span>
+      </button>
+
+      <!-- User Profile -->
+      <div class="user-profile" (click)="onProfileClick()">
+        <div class="profile-image-container">
+          <img [src]="user.profileImage" [alt]="user.name" class="profile-image" />
+          <div class="profile-badge" *ngIf="user.hasBadge">
+            <img src="/images/verified.png" alt="Verified" class="badge-icon" />
+          </div>
+        </div>
+        <span class="user-name">{{ user.name }}</span>
+        <img src="/icons/arrow-down.svg" alt="Dropdown" class="dropdown-icon" />
+      </div>
+    </div>
+  </div>
+</nav>

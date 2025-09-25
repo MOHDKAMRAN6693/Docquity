@@ -1,0 +1,133 @@
+/* Webinar Listing Container */
+.webinar-listing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Webinar Grid */
+.webinar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.webinar-card-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.webinar-card-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+}
+
+.empty-description {
+  font-size: 1rem;
+  color: #64748b;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .webinar-listing-container {
+    padding: 16px;
+  }
+
+  .webinar-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .webinar-card-item {
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .webinar-listing-container {
+    padding: 12px;
+  }
+}
+
+/* Animation for card appearance */
+.webinar-card-item {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.webinar-card-item:nth-child(1) { animation-delay: 0.1s; }
+.webinar-card-item:nth-child(2) { animation-delay: 0.2s; }
+.webinar-card-item:nth-child(3) { animation-delay: 0.3s; }
+.webinar-card-item:nth-child(4) { animation-delay: 0.4s; }
+.webinar-card-item:nth-child(5) { animation-delay: 0.5s; }
+.webinar-card-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

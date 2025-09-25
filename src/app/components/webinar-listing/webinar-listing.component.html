@@ -1,0 +1,28 @@
+<div class="webinar-listing-container">
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading webinars...</p>
+  </div>
+
+  <!-- Webinar Grid -->
+  <div *ngIf="!loading" class="webinar-grid">
+    <app-webinar-card
+      *ngFor="let webinar of webinars; let i = index"
+      [webinarData]="webinar"
+      class="webinar-card-item">
+    </app-webinar-card>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="!loading && webinars.length === 0" class="empty-state">
+    <div class="empty-icon">📚</div>
+    <h3 class="empty-title">No Webinars Found</h3>
+    <p class="empty-description">There are currently no webinars available. Check back later for new content.</p>
+    <button class="refresh-btn" (click)="refreshWebinars()">
+      <span class="refresh-icon">↻</span>
+      Refresh
+    </button>
+  </div>
+</div>

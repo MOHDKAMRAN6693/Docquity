@@ -1,0 +1,142 @@
+<div class="webinar-card">
+  <div class="card-header" *ngIf="showCardHeader">
+    <div class="organization-info">
+      <div class="org-logo">
+        <img
+          [src]="webinarData.organization.logo"
+          alt="Organization Logo"
+          class="logo-image"
+        />
+      </div>
+      <div class="org-details">
+        <h3 class="org-name">{{ webinarData.organization.name }}</h3>
+        <p class="sponsor-info">{{ webinarData.organization.sponsor }}</p>
+        <div class="engagement-stats">
+          <span class="followers-count">{{
+            formatFollowersCount(webinarData.organization.followersCount)
+          }}</span>
+          <span class="separator">•</span>
+          <span class="time-ago">{{ webinarData.organization.timeAgo }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-actions-header">
+      <button class="follow-btn" type="button">
+        <span class="btn-icon">{{ webinarData.actions.follow.icon }}</span>
+        {{ webinarData.actions.follow.text }}
+      </button>
+      <button class="menu-btn" type="button" aria-label="More options">
+        <img
+          [src]="webinarData.actions.menu.icon"
+          [alt]="webinarData.actions.menu.alt"
+          class="menu-icon"
+        />
+      </button>
+    </div>
+  </div>
+  <div class="webinar-image-container">
+    <div class="webinar-status" *ngIf="showWebinarStatus">
+      <div class="webinar-status-container-left">
+        <!-- Live Button -->
+        <button class="live-btn">
+          <img src="/icons/live.svg" alt="Live" class="live-icon" />
+          <span class="live-text">Live</span>
+        </button>
+
+        <!-- Audience Count Button -->
+        <button class="audience-btn">
+          <img src="/icons/people.svg" alt="Audience" class="audience-icon" />
+          <span class="audience-text">200+</span>
+        </button>
+      </div>
+      <div class="webinar-status-container-right">
+        <!-- CC Button -->
+        <button class="cc-btn">
+          <img src="/icons/caption.svg" alt="Mute" class="cc-icon" />
+        </button>
+
+        <!-- Mute Button -->
+        <button class="mute-btn">
+          <img src="/icons/mute.svg" alt="Mute" class="mute-icon" />
+        </button>
+      </div>
+    </div>
+    <div class="webinar-duration" *ngIf="showWebinarDuration">{{ webinarData.content.duration }}</div>
+    <img
+      [src]="webinarData.content.image"
+      alt="Webinar"
+      class="webinar-image"
+    />
+  </div>
+  <div class="webinar-details">
+    <!-- Credits Badge -->
+    <div class="credits-badge">
+      <div class="star-container">
+        <img src="/icons/star.svg" alt="Star" class="star-icon" />
+      </div>
+      <span class="credits-text">{{
+        formatCreditsText(
+          webinarData.content.credits.count,
+          webinarData.content.credits.expiringDays
+        )
+      }}</span>
+    </div>
+
+    <!-- Webinar Title -->
+    <h4 class="webinar-title">
+      {{ webinarData.content.title }}
+    </h4>
+
+    <!-- Key Highlights Section -->
+    <div class="key-highlights">
+      <div class="highlights-header">
+        {{ webinarData.content.keyHighlights.header }}
+      </div>
+      <div class="highlights-content">
+        {{ webinarData.content.keyHighlights.content }}
+      </div>
+    </div>
+
+    <!-- Engagement Stats -->
+    <div class="webinar-engagement" *ngIf="showWebinarEngagement">
+      <span class="likes-count">{{ webinarData.engagement.likes }} Likes</span>
+      <span class="separator">•</span>
+      <span class="comments-count"
+        >{{ webinarData.engagement.comments }} Comments</span
+      >
+      <span class="views-count">{{ webinarData.engagement.views }} Views</span>
+    </div>
+
+    <!-- Watch Now Button -->
+    <div class="watch-now-button" *ngIf="showWatchNowButton">
+      <button class="watch-now-btn">
+        <span class="watch-now-text">Watch Now</span>
+      </button>
+    </div>
+  </div>
+  <div class="card-actions-bottom" *ngIf="showCardActionsBottom">
+    <button *ngFor="let action of webinarData.actions.bottomActions">
+      <img [src]="action.icon" [alt]="action.alt" class="menu-icon" />
+      <span>{{ action.text }}</span>
+    </button>
+  </div>
+
+  <!-- Notify Section -->
+  <div class="webinar-card-notify" *ngIf="showWebinarNotify">
+    <div class="webinar-card-notify-content">
+      <div class="webinar-card-notify-left">
+        <div class="notify-text">
+          <span class="goes-live-text">Goes live</span>
+          <span class="on-text"> on</span>
+        </div>
+        <div class="notify-date">{{ webinarData.content.notifyDate }}</div>
+      </div>
+      <div class="webinar-card-notify-right">
+        <button class="notify-me-btn">
+          <img src="/icons/bell.svg" alt="Bell" class="bell-icon" />
+          <span class="notify-me-text">Notify me</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,141 @@
+/* Upcoming Webinar Section */
+.upcoming-webinar-section {
+  margin-bottom: 32px;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 4px;
+}
+
+.section-title {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #444242;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px 12px;
+  border: 1px solid #0f172a;
+  border: 1px solid #0f172a;
+  border-radius: 4px;
+}
+
+.view-all-btn:hover {
+  transform: translateX(2px);
+}
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+  display: none;
+}
+
+/* Show arrow icon only on mobile devices */
+@media (max-width: 768px) {
+  .arrow-icon {
+    display: block;
+  }
+
+  .view-all-btn {
+    border: none;
+  }
+}
+
+.view-all-btn:hover .arrow-icon {
+  transform: translateX(2px);
+}
+
+/* Horizontal Scroll Container */
+.webinar-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 0;
+  margin: 0 -4px;
+}
+
+.webinar-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.webinar-scroll-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.webinar-scroll-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.webinar-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.webinar-scroll-wrapper {
+  display: flex;
+  gap: 16px;
+  padding: 0 4px;
+  min-width: max-content;
+}
+
+.webinar-card-item {
+  flex: 0 0 360px;
+  max-width: 360px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .webinar-card-item {
+    flex: 0 0 280px;
+    max-width: 280px;
+  }
+
+  .webinar-scroll-wrapper {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .view-all-btn {
+    font-size: 13px;
+  }
+
+  .webinar-card-item {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+
+  .webinar-scroll-wrapper {
+    gap: 10px;
+  }
+}
